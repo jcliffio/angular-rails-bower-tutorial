@@ -1,0 +1,38 @@
+<div class="container" ng-init="init()">
+  <div class="well">
+    <h2>Create Score</h2>
+    <div class="form-inline">
+      <input type="text" ng-model="selectedUser" placeholder="User" typeahead="user as user.email for user in getUsers($viewValue)" typeahead-loading="loadingUsers" class="form-control" />
+
+      <i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>
+
+      <input type="number" ng-model="scoreValue" placeholder="Score" class="form-control" />
+
+      <button ng-click="createScore()" class="btn btn-primary form-control">Create Score</button>
+    </div>
+  </div>
+
+  <div>
+    <h2>Scores</h2>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>User #</th>
+            <th>Email</th>
+            <th>Score #</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="score in scores">
+            <td>{{score.user.id}}</td>
+            <td>{{score.user.email}}</td>
+            <td>{{score.id}}</td>
+            <td>{{score.value}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
